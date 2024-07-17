@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot</title>
+    <link rel="icon" href="{{ url_for('static', filename='img/main/shortlogo.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='chatbot.css') }}">
+</head>
+<body>
+    <header>
+        <img src="{{ url_for('static', filename='img/data/SoBok.png') }}" alt="SoBok">
+        <div id="nav">
+            <a href="/"><p>홈</p></a>
+            <a href="/guide"><p>공문:안내</p></a>
+            <a href="/data"><p>자료실</p></a>
+            <a href="/community"><p>커뮤니티</p></a>
+            <a href="/chatbot" id="now"><p>ChatBot</p></a>
+        </div>
+    </header>
+    <main>
+        <h1>챗봇</h1>
+        <div id="chat-container">
+            <div id="chat-box"></div>
+            <div id="send-box">
+                <input type="text" id="user-input">
+                <button onclick="sendMessage()">전송</button>
+            </div>
+        </div>
+    </main>
+    <script>
+        document.getElementById("user-input").addEventListener("keyup", function(event) {
+            // Check if the pressed key is Enter (key code 13)
+            if (event.key === "Enter") {
+                sendMessage();
+            }
+        });
+        function sendMessage() {
+            var userInput = document.getElementById("user-input").value;
+            document.getElementById("chat-box").innerHTML += "<p><strong>사용자:</strong> " + userInput + "</p>";
+            document.getElementById("user-input").value = "";
+
+            fetch('/send_message', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ message: userInput })
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("chat-box").innerHTML += "<p><strong>챗봇:</strong> " + data.reply + "</p>";
+            });
+        }
+    </script>
+</body>
+</html>

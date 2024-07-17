@@ -1,0 +1,14 @@
+#kiosk{
+    border-bottom:solid 2px orange;
+}
+#kyoyook{
+    position: relative;
+    left:35px;
+}
+#text1{
+    position: relative;
+    left:50px;
+}
+#textchang{
+    border:2px solid orange;
+}

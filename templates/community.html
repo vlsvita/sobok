@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SoBok</title>
+    <link rel="icon" href="{{ url_for('static', filename='img/main/shortlogo.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='community.css') }}">
+</head>
+
+<body>
+    <header>
+        <img src="{{ url_for('static', filename='img/data/SoBok.png') }}" alt="SoBok">
+        <div id="nav">
+            <a href="/"><p>홈</p></a>
+            <a href="/guide"><p>공문:안내</p></a>
+            <a href="/data"><p>자료실</p></a>
+            <a href="/community" id="now"><p>커뮤니티</p></a>
+            <a href="/chatbot"><p>ChatBot</p></a>
+        </div>
+    </header>
+    
+    <h1>커뮤니티 게시판</h1>
+
+    <div id="post-form">
+        <h2>새 게시글 작성</h2>
+        <input type="text" id="title" placeholder="제목">
+        <textarea id="content" placeholder="내용"></textarea>
+        <input type="text" id="author" placeholder="작성자">
+        <button id="create-post-button">게시글 작성</button>
+    </div>
+    <hr>
+    <div id="posts">
+        <h2>게시글 목록</h2>
+        <div id="posts-list"></div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            fetchPosts();
+
+            // 버튼 클릭 이벤트 리스너를 한 번만 추가합니다.
+            const createPostButton = document.getElementById('create-post-button');
+            createPostButton.removeEventListener('click', createPost); // 중복 리스너 방지
+            createPostButton.addEventListener('click', createPost);
+        });
+
+        function fetchPosts() {
+            const postsList = document.getElementById('posts-list');
+            postsList.innerHTML = '';
+
+            const posts = JSON.parse(localStorage.getItem('posts')) || [];
+            posts.forEach((post, index) => {
+                const postElement = document.createElement('div');
+                postElement.classList.add('post');
+                postElement.innerHTML = `
+                    <h3>${post.title}</h3>
+                    <p>${post.content}</p>
+                    <p>작성자: ${post.author}</p>
+                    <p>${new Date(post.createdAt).toLocaleString()}</p>
+                    <button class="like-button" onclick="likePost(${index})">좋아요 (${post.likes || 0})</button>
+                    <button class="comment-button" onclick="toggleComments(${index})">댓글</button>
+                    <div class="comment-section" id="comments-${index}" style="display: none;">
+                        <textarea placeholder="댓글 작성"></textarea>
+                        <button onclick="addComment(${index})">댓글 추가</button>
+                        <div class="comments-list" id="comments-list-${index}"></div>
+                    </div>
+                `;
+                postsList.appendChild(postElement);
+
+                // 댓글을 가져와서 표시
+                if (post.comments) {
+                    const commentsList = document.getElementById(`comments-list-${index}`);
+                    post.comments.forEach(comment => {
+                        const commentElement = document.createElement('div');
+                        commentElement.classList.add('comment');
+                        commentElement.innerHTML = `<p>${comment}</p>`;
+                        commentsList.appendChild(commentElement);
+                    });
+                }
+            });
+        }
+
+        function createPost() {
+            const title = document.getElementById('title').value;
+            const content = document.getElementById('content').value;
+            const author = document.getElementById('author').value;
+
+            if (!title || !content || !author) {
+                alert("제목, 내용, 작성자를 모두 입력해주세요.");
+                return;
+            }
+
+            const posts = JSON.parse(localStorage.getItem('posts')) || [];
+            posts.push({
+                title: title,
+                content: content,
+                author: author,
+                createdAt: new Date().toISOString(),
+                likes: 0,
+                comments: []
+            });
+
+            localStorage.setItem('posts', JSON.stringify(posts));
+            fetchPosts(); // 새로고침하여 게시글 목록을 업데이트
+            document.getElementById('title').value = '';
+            document.getElementById('content').value = '';
+            document.getElementById('author').value = '';
+        }
+
+        function likePost(index) {
+            const posts = JSON.parse(localStorage.getItem('posts'));
+            posts[index].likes = (posts[index].likes || 0) + 1;
+            localStorage.setItem('posts', JSON.stringify(posts));
+            fetchPosts(); // 새로고침하여 좋아요 수를 업데이트
+        }
+
+        function toggleComments(index) {
+            const commentsSection = document.getElementById(`comments-${index}`);
+            commentsSection.style.display = commentsSection.style.display === 'none' ? 'block' : 'none';
+        }
+
+        function addComment(index) {
+            const commentText = document.querySelector(`#comments-${index} textarea`).value;
+            if (!commentText) return;
+
+            const posts = JSON.parse(localStorage.getItem('posts'));
+            if (!posts[index].comments) posts[index].comments = [];
+            posts[index].comments.push(commentText);
+            localStorage.setItem('posts', JSON.stringify(posts));
+
+            fetchPosts(); // 새로고침하여 댓글을 업데이트
+        }
+
+        // localStorage.clear();
+    </script>
+</body>
+</html>

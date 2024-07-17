@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SoBok</title>
+    <link rel="icon" href="{{ url_for('static', filename='img/main/shortlogo.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='data.css') }}">
+</head>
+<body>
+    <header>
+        <img src="{{ url_for('static', filename='img/data/SoBok.png') }}" alt="SoBok">
+        <div id="nav">
+            <a href="/"><p>홈</p></a>
+            <a href="/guide"><p>공문:안내</p></a>
+            <a href="/data" id="now"><p>자료실</p></a>
+            <a href="/community"><p>커뮤니티</p></a>
+            <a href="/chatbot"><p>ChatBot</p></a>
+        </div>
+    </header>
+    <main>
+        <div>
+            <div id="data1">
+                <img src="{{ url_for('static', filename='img/data/img/LowIncome.png') }}" id="downsodek">
+                <a href="https://www.alio.go.kr/download/download.json?fileNo=2258045" id="downsodektext">저소득층(pdf파일)</a>
+            </div>
+            <div id="data2">
+                <a href="/data/Digital">
+                    <img src="{{ url_for('static', filename='img/data/img/Education.png') }}" id="goryeong">
+                </a>
+            </div>
+            <div id="data3">
+                 <a href="/data/Coway">
+                    <img src="{{ url_for('static', filename='img/data/img/Coway.jpg') }}" id="small">
+                </a>
+            </div>
+            <div id="data4">
+                <a href="/data/Policy">
+                    <img src="{{ url_for('static', filename='img/data/img/Policy.jpg') }}" id="small">
+                </a>
+            </div>
+            <div id="data5">
+                <a href="/data/LowIncome">
+                    <img src="{{ url_for('static', filename='img/data/img/LowIncome2.jpg') }}" id="small">
+                </a>
+            </div>
+            <div id="data6">
+                <a href="/data/Energy">
+                    <img src="{{ url_for('static', filename='img/data/img/EnergySupport.jpg') }}" id="small">
+                </a>
+            </div>
+            <div id="data7">
+                <a href="/data/Teenager">
+                    <img src="{{ url_for('static', filename='img/data/img/Teenager.jpg') }}" id="small">
+                </a>
+            </div>
+            <div id="data8">
+                <a href="https://www.acrc.go.kr/board.es?mid=a10403020000&bid=CDNS&tag=&act=view&list_no=69725&nPage=">
+                    <img src="{{ url_for('static', filename='img/data/img/Application.png') }}" id="small">
+                </a>
+            </div>
+            <div id="data9">
+                <a href="/data/NorthKoreanDefector">
+                    <img src="{{ url_for('static', filename='img/data/img/NorthKoreanDefector.jpeg') }}" id="talbookin">
+                </a>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

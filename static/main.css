@@ -1,0 +1,197 @@
+html, body {
+    margin: 0;
+}
+
+header {
+    height: 2.60vw; /* 50px */
+    position: relative;
+    background-color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+}
+
+header > img {
+    position: absolute;
+    height: 1.30vw; /* 25px */
+    width: 5.31vw; /* 102px */
+    top: 0.65vw; /* 25% of 2.60vw */
+    left: 0.89vw; /* 17px */
+
+}
+
+#nav {
+    display: flex;
+    position: absolute;
+    left: 10.42vw; /* 200px */
+}
+
+#nav > a {
+    height: 2.60vw; /* 50px */
+    line-height: 2.60vw; /* 50px */
+    margin: 0;
+    font-size: 1.04vw; /* 20px */
+    margin-right: 2.97vw; /* 57px */
+    text-decoration: none;
+    color: #000;
+}
+
+#now > p {
+    text-decoration: underline;
+}
+
+#nav > a:hover {
+    text-decoration: underline;
+}
+
+p {
+    margin: 0;
+}
+ /* ---------------------------------------------------- */
+
+main{
+    width: 100%;
+    height: 850px;
+    background-image: url("img/main/mainbg.png");
+    background-size: cover;
+    margin-top: 2.60vw;
+    position: relative;
+}
+main > div{
+    position: absolute;
+    top: 3.8472vw;
+    left: 9.0972vw;
+}
+h1, h3{
+    color: #fff;
+}
+h1{
+    font-size: 8.6667vw;
+}
+h3{
+    font-size: 3.9306vw;
+}
+
+#titl{
+    margin-left: 40px;
+}
+
+#titl1{
+    color: #000000;
+}
+
+#titl2{
+    color: #FF783E;
+    margin-top: -50px;
+    margin-left: 100px;
+}
+
+.container-wrap {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(100px, 1fr));
+    grid-template-rows: repeat(3, minmax(300px, 1fr));
+    grid-gap: 2.60vw;
+    margin: 5vw;
+}
+
+.v4x4 {
+    grid-column: 1/3;
+    grid-row: 1/3;
+    box-shadow: 1px 1px 5px #FF783E;
+    position: relative;
+}
+
+.v4x4 > img{
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+}
+
+.v1x1n1 {
+    grid-column: 3/4;
+    grid-row: 1/2;
+    box-shadow: 1px 1px 5px #FF783E;
+    position: relative;
+}
+
+.v1x1n1 > img{
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+}
+
+.v1x1n2 {
+    grid-column: 3/4;
+    grid-row: 2/3;
+    box-shadow: 1px 1px 5px #FF783E;
+    position: relative;
+}
+
+.v1x1n2 > img{
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+}
+
+.v2x1 {
+    grid-column: 1/3;
+    grid-row: 3/4;
+    box-shadow: 1px 1px 5px #FF783E;
+    background-size: cover;
+    background-origin: border-box;
+    position: relative;
+}
+
+.v2x1 > img{
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+}
+
+.v1x1n3 {
+    grid-column: 3/4;
+    grid-row: 3/4;
+    box-shadow: 1px 1px 5px #FF783E;
+    position: relative;
+}
+
+.v1x1n3 > img{
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+}
+
+.container {
+    border-radius: 15px;
+}
+
+.ex{
+    background: rgba(0, 0, 0, 0.6); /*기본 배경색을 반투명한 검정으로 지정*/
+    color: #fff;
+    width: 100%;
+    height: 190px;
+    text-align: center;
+    padding-top: 10px;
+    position: absolute;
+    opacity: 0; /*요소가 완전히 투명해 보이지 않음.*/
+    border-radius: 0px 0px 15px 15px;;
+}
+
+.container:hover .ex{
+    opacity: 0.8;/*요소가 요소가 불투명함.*/
+    transform: translateY(-200px); /*.ex요소를 위로 200px 이동*/
+    transition-property: all; /*모든 .ex요소를 트랜지션 대상 지정*/
+    transition-duration: 0.5s; /*실행시간 0.5초로 지정*/
+}
+
+.ex > p{
+    font-size: 25px;
+}
+
+a{
+    text-decoration: none;
+    color: #000;
+    background-color: #fff;
+}

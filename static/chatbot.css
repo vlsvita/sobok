@@ -1,0 +1,96 @@
+html, body {
+    margin: 0;
+}
+
+header {
+    height: 2.60vw; /* 50px */
+    position: relative;
+    background-color: #FF783E;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+header > img {
+    position: absolute;
+    height: 1.30vw; /* 25px */
+    width: 5.31vw; /* 102px */
+    top: 0.65vw; /* 25% of 2.60vw */
+    left: 0.89vw; /* 17px */
+}
+
+#nav {
+    display: flex;
+    position: absolute;
+    left: 10.42vw; /* 200px */
+}
+
+#nav > a {
+    height: 2.60vw; /* 50px */
+    line-height: 2.60vw; /* 50px */
+    margin: 0;
+    font-size: 1.04vw; /* 20px */
+    margin-right: 2.97vw; /* 57px */
+    text-decoration: none;
+    color: #fff;
+}
+
+#now > p {
+    text-decoration: underline;
+}
+
+#nav > a:hover {
+    text-decoration: underline;
+}
+
+p {
+    margin: 0;
+}
+
+/* ------------------------------------------------- */
+body {
+    display: flex;
+}
+
+main {
+    margin: 0 auto;
+    margin-top: 50px;
+    align-self: center;
+}
+.chat-container {
+    height: 80vh;
+    position: relative;
+}
+.chat-box {
+    width: 70%;
+}
+.send-box {
+    position: absolute;
+    bottom: 10px;
+}
+
+h1{
+    font-size: 50px;
+    text-align: center;
+}
+input {
+    margin: 0;
+    width: 1000px;
+    height: 30px;
+    border-radius: 10px;
+    outline: none;
+    border: 1px solid #000;
+    font-size: 20px;
+    padding-left: 10px;
+}
+button {
+    margin: 0;
+    height: 35px;
+    width: 60px;
+    font-size: 20px;
+    border-radius: 10px;
+    border: 1px solid #000;
+    background-color: #FF783E;
+    color: #ffffff;
+}

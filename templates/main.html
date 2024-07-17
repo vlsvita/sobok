@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SoBok</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='img/main/shortlogo.png') }}">
+</head>
+<body>
+    <header>
+        <img src="{{ url_for('static', filename='img/main/logo.png') }}" alt="SoBok">
+        <div id="nav">
+            <a href="/" id="now"><p>홈</p></a>
+            <a href="/guide"><p>공문:안내</p></a>
+            <a href="/data"><p>자료실</p></a>
+            <a href="/community"><p>커뮤니티</p></a>
+            <a href="/chatbot"><p>ChatBot</p></a>
+        </div>
+    </header>
+    <main>
+        <div>
+            <h1>SoBok</h1>
+            <h3>모두의<br>
+                복지 포털</h3>
+        </div>
+    </main>
+    <div id="titl">
+        <h3 id="titl1"><b>최신소식</b></h3>
+        <h3 id="titl2"><b>둘러보세요</b></h3>
+    </div>
+    <div class="container-wrap">
+        <div class="container v4x4">
+            <img src="{{ url_for('static', filename='img/main/img_1.png') }}" class="container-image">
+            <div class="ex">
+                <p>롯데웰푸드, 인천 7남매 다자녀 가정에 1년간 영유아식 지원</p>
+            </div>
+        </div>
+        <div class="container v1x1n1">
+            <img src="{{ url_for('static', filename='img/main/img_2.png') }}" class="container-image">
+            <div class="ex">
+                <p>LG전자, 장애 청소년 IT·AI 역량 강화 지원</p>
+            </div>
+        </div>
+        <div class="container v1x1n2">
+            <img src="{{ url_for('static', filename='img/main/img_3.png') }}" class="container-image">
+            <div class="ex">
+                <p>안양시사회복지협의회</p>
+                <p>독거노인 여름 대비 물품 지원</p>
+            </div>
+        </div>
+        <div class="container v2x1">
+            <img src="{{ url_for('static', filename='img/main/img_4.png') }}" class="container-image">
+            <div class="ex">
+                <p>서금원, 한부모가정 의료보험 지원 대상 '18세 미만 아동 가정'으로 확대</p>
+            </div>
+        </div>
+        <div class="container v1x1n3">
+            <img src="{{ url_for('static', filename='img/main/img_5.png') }}" class="container-image">
+            <div class="ex">
+                <p>세이브더칠드런, 저소득층 1천525명</p>
+                <p> 대상 식사지원사업</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>  

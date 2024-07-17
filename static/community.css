@@ -1,0 +1,153 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    padding: 10px;
+    text-align: center;
+}
+
+html, body {
+    margin: 0;
+}
+
+header {
+    height: 2.60vw; /* 50px */
+    position: relative;
+    background-color: #FF783E;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100; /* 추가 */
+}
+
+header > img {
+    position: absolute;
+    height: 1.30vw; /* 25px */
+    width: 5.31vw; /* 102px */
+    top: 0.65vw; /* 25% of 2.60vw */
+    left: 0.89vw; /* 17px */
+}
+
+#nav {
+    display: flex;
+    position: absolute;
+    left: 10.42vw; /* 200px */
+}
+
+#nav > a {
+    height: 2.60vw; /* 50px */
+    line-height: 2.60vw; /* 50px */
+    margin: 0;
+    font-size: 1.04vw; /* 20px */
+    margin-right: 2.97vw; /* 57px */
+    text-decoration: none;
+    color: #fff;
+}
+
+#now > p {
+    text-decoration: underline;
+}
+
+#nav > a:hover {
+    text-decoration: underline;
+}
+
+p {
+    margin: 0;
+}
+
+h1, #posts > h2{
+    text-align: center;
+}
+
+#post-form {
+    margin-bottom: 40px;
+    margin-left: 400px;
+}
+
+textarea {
+    width: 100%;
+    height: 6.25em;
+    resize: none;
+  }
+
+hr{
+    width: 80%;
+}
+
+#post-form input,
+#post-form textarea {
+    outline: none;
+    display: block;
+    margin: 10px 0;
+    width: 60%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+#post-form button {
+    padding: 10px 20px;
+    background-color: #FFA66B;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+#post-form button:hover {
+    background-color: #0056b3;
+}
+
+#posts-list {
+    margin-top: 20px;
+}
+
+.post {
+    border: 1px solid #ddd; /* 구분선 스타일 */
+    padding: 10px;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.post button.like-button {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.post button.like-button:hover {
+    background-color: #218838;
+}
+
+.post button.comment-button {
+    background-color: #17a2b8;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.post button.comment-button:hover {
+    background-color: #138496;
+}
+
+.comment-section {
+    margin-top: 10px;
+}
+
+.comment-section textarea {
+    width: calc(100% - 20px);
+}
+
+.comment-section button {
+    margin-top: 5px;
+}
+
+.comment {
+    border-top: 1px solid #ddd;
+    padding: 5px 0;
+}
